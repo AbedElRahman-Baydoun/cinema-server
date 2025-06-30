@@ -1,12 +1,10 @@
 <?php 
 require("../connection/connection.php");
 
-$query = "CREATE TABLE payment_tickets (
+$query = "CREATE TABLE snacks (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    payment_id INT NOT NULL,
-    ticket_id INT NOT NULL,
-    FOREIGN KEY (payment_id) REFERENCES payments(id),
-    FOREIGN KEY (ticket_id) REFERENCES tickets(id))";
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(6,2) NOT NULL)";
 
 if ($conn->query($query) === TRUE) {
     echo "Table users created successfully.";
