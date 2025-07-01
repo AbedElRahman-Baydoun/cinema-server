@@ -1,5 +1,5 @@
 <?php
-require_once 'Model.php';
+require_once 'model.php';
 
 class User extends Model {
     protected ?int $id = null;
@@ -22,18 +22,6 @@ class User extends Model {
         $this->age = isset($data['age']) ? (int) $data['age'] : null;
         $this->favorite_genre = $data['favorite_genre'] ?? '';
         $this->communication_preference = $data['communication_preference'] ?? 'email';
-    }
-
-    public function toDB(): array {
-        return [
-            'name' => $this->name,
-            'email' => $this->email,
-            'mobile_number' => $this->mobile_number,
-            'password' => $this->password,
-            'age' => $this->age,
-            'favorite_genre' => $this->favorite_genre,
-            'communication_preference' => $this->communication_preference,
-        ];
     }
 
     public function getId(): ?int {
@@ -97,5 +85,16 @@ class User extends Model {
             throw new InvalidArgumentException("Invalid communication preference.");
         }
         $this->communication_preference = $preference;
+    }
+        public function toDB(): array {
+        return [
+            'name' => $this->name,
+            'email' => $this->email,
+            'mobile_number' => $this->mobile_number,
+            'password' => $this->password,
+            'age' => $this->age,
+            'favorite_genre' => $this->favorite_genre,
+            'communication_preference' => $this->communication_preference,
+        ];
     }
 }
