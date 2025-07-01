@@ -1,5 +1,5 @@
 <?php
-require_once 'model.php';
+require_once 'Model.php';
 
 class User extends Model {
     protected ?int $id = null;
