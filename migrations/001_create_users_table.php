@@ -3,6 +3,7 @@ require("../connection/connection.php");
 
 $query = "CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    auth_token VARCHAR(255) DEFAULT NULL,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     mobile_number VARCHAR(20) NOT NULL UNIQUE,

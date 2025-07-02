@@ -3,6 +3,7 @@ require_once 'Model.php';
 
 class User extends Model {
     protected ?int $id = null;
+    protected ?string $auth_token = null;
     protected string $name = '';
     protected string $email = '';
     protected string $mobile_number = '';
@@ -15,6 +16,7 @@ class User extends Model {
 
     public function __construct(array $data = []) {
         $this->id = $data['id'] ?? null;
+        $this->auth_token = $data['auth_token'] ?? null;
         $this->name = $data['name'] ?? '';
         $this->email = $data['email'] ?? '';
         $this->mobile_number = $data['mobile_number'] ?? '';
@@ -27,6 +29,10 @@ class User extends Model {
     public function getId(): ?int {
         return $this->id;
     }
+
+    public function getAuthToken(): ?string {
+    return $this->auth_token;
+}
 
     public function getName(): string {
         return $this->name;
@@ -51,6 +57,10 @@ class User extends Model {
     public function getCommunicationPreference(): string {
         return $this->communication_preference;
     }
+
+public function setAuthToken(?string $auth_token): void {
+    $this->auth_token = $auth_token;
+}
 
     public function setName(string $name): void {
         $this->name = trim($name);
